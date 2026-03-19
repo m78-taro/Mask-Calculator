@@ -1,0 +1,19 @@
+<navigation-bar title="1" back="{{false}}" color="black" background-color="#FFF">掩码位换算器</navigation-bar>
+
+  <view class="body">
+    <text class="t" style="display: block;">四段十进制转掩码位</text>
+    <text>输入子网掩码：</text>
+    <view>
+      <text>input</text>
+
+      <view style="font-size: 1;display: flex;">
+        <input id="ipt10" value="{{ipt10}}" maxlength="3" bindinput="jump" placeholder="255"/>
+          <text>.</text>
+        <input id="ipt20" value="{{ipt20}}" maxlength="3" bindinput="jump" placeholder="255"/>
+          <text>.</text>
+        <input id="ipt30" value="{{ipt30}}" maxlength="3" bindinput="jump" placeholder="255"/>
+          <text>.</text>
+        <input id="ipt40" value="{{ipt40}}" maxlength="3" bindinput="jump" placeholder="0"/>
+      </view>
+    </view>
+  </view>
