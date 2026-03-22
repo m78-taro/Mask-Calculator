@@ -1,4 +1,6 @@
 {
-  "usingComponents": {
-  }
+  "usingComponents": {},
+  "navigationBarTitleText": "掩码位换算",
+  "navigationBarTextStyle": "black",
+  "navigationBarBackgroundColor": "#ffffff"
 }

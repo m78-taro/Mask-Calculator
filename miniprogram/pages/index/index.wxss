@@ -1,62 +1,148 @@
-/**index.wxss**/
-page {
-  height: 100vh;
+/* 导航栏容器：固定在顶部，和页面背景统一 */
+.navigation-bar {
   display: flex;
-  flex-direction: column;
-}
-.scrollarea {
-  flex: 1;
-  overflow-y: hidden;
-}
-
-.userinfo {
-  display: flex;
-  flex-direction: column;
   align-items: center;
-  color: #aaa;
-  width: 80%;
-}
-
-.userinfo-avatar {
-  overflow: hidden;
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
-}
-
-.usermotto {
-  margin-top: 200px;
-}
-
-.avatar-wrapper {
-  padding: 0;
-  width: 56px !important;
-  border-radius: 8px;
-  margin-top: 40px;
-  margin-bottom: 40px;
-}
-
-.avatar {
-  display: block;
-  width: 56px;
-  height: 56px;
-}
-
-.nickname-wrapper {
-  display: flex;
-  width: 100%;
-  padding: 16px;
+  justify-content: center;
+  height: 88rpx; /* 标准小程序导航栏高度 */
+  background-color: #f7f8fa;
+  padding: 0 30rpx;
   box-sizing: border-box;
-  border-top: .5px solid rgba(0, 0, 0, 0.1);
-  border-bottom: .5px solid rgba(0, 0, 0, 0.1);
-  color: black;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
 }
 
-.nickname-label {
-  width: 105px;
+/* 导航栏标题：增大字体、加粗，更清晰 */
+.navigation-bar .title {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333;
 }
 
-.nickname-input {
-  flex: 1;
+/* 页面主体：给顶部导航栏留间距，避免内容被挡住 */
+.body {
+  padding-top: 120rpx; /* 比导航栏高度多一点，防止遮挡 */
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+  min-height: 100vh;
+  background-color: #f7f8fa;
+  box-sizing: border-box;
+}
+
+/* 普通提示文字 */
+text {
+  font-size: 28rpx;
+  color: #666;
+  display: block;
+  margin-bottom: 12rpx;
+}
+
+/* 合法掩码提示 */
+view:nth-of-type(2) text {
+  color: #1677ff;
+  font-size: 26rpx;
+  margin-bottom: 30rpx;
+}
+
+/* 输入框容器 */
+view[style="font-size: 1;display: flex;"] {
+  align-items: center;
+  justify-content: center;
+  margin: 40rpx 0;
+  gap: 8rpx;
+}
+
+/* 输入框样式 */
+input {
+  width: 120rpx;
+  height: 80rpx;
+  border: 2rpx solid #e5e7eb;
+  border-radius: 12rpx;
+  text-align: center;
+  font-size: 30rpx;
+  background-color: #fff;
+}
+input:focus {
+  border-color: #1677ff;
+}
+
+/* 按钮样式 */
+.a {
+  width: 200rpx;
+  height: 80rpx;
+  background-color: #1677ff;
+  color: #fff;
+  border-radius: 40rpx;
+  margin: 30rpx auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30rpx;
+  border: none;
+}
+.a:active {
+  background-color: #0e60d6;
+}
+
+/* 结果展示 */
+view:last-of-type {
+  text-align: center;
+  margin-top: 40rpx;
+}
+view:last-of-type text {
+  font-size: 32rpx;
+  color: #333;
+  font-weight: 500;
+}
+view:last-of-type text:last-child {
+  color: #1677ff;
+  font-size: 48rpx;
+  font-weight: bold;
+  margin-top: 10rpx;
+}
+.input-group {
+  display: flex;
+  align-items: center;
+  /* 核心：水平居中 */
+  justify-content: center;
+  margin: 40rpx 0;
+  /* 输入框之间的间距，避免挤在一起 */
+  gap: 8rpx;
+}
+
+/* 作者水印容器：保持布局不变 */
+.author-watermark {
+  position: fixed;
+  bottom: 30rpx;
+  right: 30rpx;
+  display: flex;
+  align-items: center;
+  gap: 10rpx;
+  opacity: 0.8;
+}
+
+/* 作者头像：圆形小尺寸 */
+.author-avatar {
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* ✅ 关键：用更具体的选择器提高优先级，强制覆盖蓝色 */
+.body .author-watermark .author-name {
+  font-size: 30rpx;
+  color: #707070; /* 哑光不锈钢深灰色 */
+  line-height: 30rpx;
+  /* 临时加 !important 确保生效（调试用，没问题后可去掉） */
+  /* color: #707070 !important; */
+}
+
+/* 只动表情：30rpx大小 + 向上微调2rpx对齐文字 */
+.author-emoji {
+  width: 30rpx;
+  height: 30rpx;
+  transform: translateY(-6rpx); /* 往上移2rpx；往下就改正数，比如3rpx */
 }

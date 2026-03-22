@@ -1,10 +1,12 @@
+import{x} from'../../utils/util'
+
 Component({
   data: {
     ipt10:"",
     ipt20:"",
     ipt30:"",
     ipt40:"",
-    printf:"0",
+    printf:0,
 
     f1:true,
     f2:false,
@@ -46,33 +48,37 @@ Component({
     a(){
       let cup1 = "",cup2 = "",cup3 = "",cup4= "";
 
-      let i1 = Number(this.data.ipt10);
+      let i1 = this.data.ipt10 === "" ? 255 : Number(this.data.ipt10);
       while(i1>0){
         cup1 = (i1%2)+cup1;
         i1 = Math.floor(i1/2);
       }
       cup1 = cup1.padStart(8,"0");
 
-      let i2=Number(this.data.ipt20);
+      let i2 = this.data.ipt20 === "" ? 255 : Number(this.data.ipt20);
       while(i2>0){
         cup2 = (i2%2)+cup2;
         i2 = Math.floor(i2/2);
       }
       cup2 = cup2.padStart(8,"0");
 
-      let i3=Number(this.data.ipt30);
+      let i3 = this.data.ipt30 === "" ? 255 : Number(this.data.ipt30);
       while(i3>0){
         cup3 = (i3%2)+cup3;
         i3 = Math.floor(i3/2);
       }
       cup3 = cup3.padStart(8,"0");
 
-      let i4=Number(this.data.ipt40);
+      let i4 = this.data.ipt40 === "" ? 0 : Number(this.data.ipt40);
       while(i4>0){
         cup4 = (i4%2)+cup4;
         i4 = Math.floor(i4/2);
       }
       cup4 = cup4.padStart(8,"0");
+
+      let cup = cup1+cup2+cup3+cup4;
+      let p = x(cup)
+      this.setData({printf:p});
     }
   },
 })

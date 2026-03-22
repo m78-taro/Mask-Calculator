@@ -1,26 +1,33 @@
-<navigation-bar title="1" back="{{false}}" color="black" background-color="#FFF">掩码位换算器</navigation-bar>
+<navigation-bar title="掩码位换算" back="{{false}}" color="#333" background-color="#f7f8fa"></navigation-bar>
 
-  <view class="body">
-    <text class="t" style="display: block;">四段十进制转掩码位</text>
-    <text>输入子网掩码：</text>
-    <view>
-      <text>input</text>
+<view class="body">
+  <text style="display: block; font-size: 32rpx; color: #333; text-align: center; margin-bottom: 20rpx;">输入子网掩码：</text>
 
-      <view style="font-size: 1;display: flex;">
-        <input id="ipt10" value="{{ipt10}}" maxlength="3" type="digit" focus="{{f1}}" bindinput="jump" placeholder="255"/>
-          <text>.</text>
-        <input id="ipt20" value="{{ipt20}}" maxlength="3" type="digit" focus="{{f2}}" bindinput="jump" placeholder="255"/>
-          <text>.</text>
-        <input id="ipt30" value="{{ipt30}}" maxlength="3" type="digit" focus="{{f3}}" bindinput="jump" placeholder="255"/>
-          <text>.</text>
-        <input id="ipt40" value="{{ipt40}}" maxlength="3" type="digit" focus="{{f4}}" bindinput="jump" placeholder="0"/>
-      </view>
-
-      <button class="a" bind:tap="a">ok</button>
-
-      <view>
-        <text>printf:</text>
-        <text>{{printf}}</text>
-      </view>
-    </view>
+  <view class="input-group">
+    <input id="ipt10" value="{{ipt10}}" maxlength="3" type="digit" focus="{{f1}}" bindinput="jump" placeholder="255"/>
+      <text>.</text>
+    <input id="ipt20" value="{{ipt20}}" maxlength="3" type="digit" focus="{{f2}}" bindinput="jump" placeholder="255"/>
+      <text>.</text>
+    <input id="ipt30" value="{{ipt30}}" maxlength="3" type="digit" focus="{{f3}}" bindinput="jump" placeholder="255"/>
+      <text>.</text>
+    <input id="ipt40" value="{{ipt40}}" maxlength="3" type="digit" focus="{{f4}}" bindinput="jump" placeholder="0"/>
   </view>
+
+  <view style="margin-top: 10rpx;">
+  <text>请输入合法掩码段</text>
+  <!-- 强制换行+独立样式 -->
+  <text class="small-text" style="display: block; font-size: 26rpx !important; color: #999;">0，128，192，224，240，248，252，254，255</text>
+  </view>
+
+  <button class="a" bind:tap="a">一键换算</button>
+
+  <view>
+    <text>掩码位：{{printf}}</text>
+  </view>
+
+  <view class="author-watermark">
+    <image src="/images/Neptune.jpg" class="author-avatar"></image>
+    <text class="author-name">By猛龙不过江</text>
+    <image src="/images/incader.png" class=".author-emoji"></image>
+  </view>
+</view>
